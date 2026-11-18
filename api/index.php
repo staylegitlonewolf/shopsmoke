@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-/** ShopSmoke Marketing Studio v0.0.39 cPanel PHP TV publishing service.
+/** ShopSmoke Marketing Studio v0.0.40 cPanel PHP TV publishing service.
  *  Server-side JSON registry in private HOME directory, owner login, image-only
  *  uploads, scheduled revisions, publicly readable TV manifests.
  *  NO default credentials; server remains locked until config.php is edited and
@@ -15,7 +15,7 @@ declare(strict_types=1);
  *  v0.0.22: setup/install.php only asks for an email and password, so new installs use the
  *  private-folder registry (no database) and the owner logs in with that email.
  */
-const FT_VERSION='0.0.39';
+const FT_VERSION='0.0.40';
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, max-age=0');
 header('X-Content-Type-Options: nosniff');

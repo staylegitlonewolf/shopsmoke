@@ -1,6 +1,6 @@
 <?php
 /**
- * ShopSmoke Marketing Studio v0.0.39 — first-time setup (https://your-domain/setup/install.php).
+ * ShopSmoke Marketing Studio v0.0.40 — first-time setup (https://your-domain/setup/install.php).
  * The new owner types an email and a password and confirms in a popup. That creates the owner
  * account, writes api/config.php, signs the owner in, and this page deletes itself.
  * Stores, TVs and accounts are kept in the private folder outside public_html, so no database is
@@ -38,7 +38,7 @@ function page($title, $body) {
 	. '.err{background:#fff1f2;border:1px solid #f3b4bd;color:#9d1730;border-radius:10px;padding:11px 13px;font-weight:600}.good{background:#e8f8f1;border:1px solid #b7e4d0;color:#146546;border-radius:10px;padding:11px 13px;font-weight:600}'
 	. 'code{background:#eef3ff;color:#23439a;padding:2px 6px;border-radius:5px;word-break:break-all}.fine{font-size:12px;color:#6b7c93}details{margin-top:14px;font-size:13px}summary{cursor:pointer;color:#6b7c93}'
 	. '.shade{position:fixed;inset:0;background:#0c1228cc;display:flex;align-items:center;justify-content:center;padding:16px}.shade[hidden]{display:none}.box{background:#fff;border-radius:14px;padding:22px;width:min(420px,100%);box-shadow:0 16px 60px #0006}.box h2{margin:0 0 8px;font-size:20px}.box .who{font-weight:800;color:#14223c;word-break:break-all}.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.actions button{margin:0}'
-	. '</style></head><body><main><header><small>SHOPSMOKE MARKETING STUDIO · v0.0.39</small><h1>' . h($title) . '</h1></header>' . $body . '</main></body></html>';
+	. '</style></head><body><main><header><small>SHOPSMOKE MARKETING STUDIO · v0.0.40</small><h1>' . h($title) . '</h1></header>' . $body . '</main></body></html>';
 	exit;
 }
 /** Same rule as api/index.php: the private folder sits next to public_html, never inside it. */

@@ -1,4 +1,6 @@
-# ShopSmoke Marketing Studio v0.0.39
+# ShopSmoke Marketing Studio v0.0.40
+
+**v0.0.40:** the home page adds the standard `mobile-web-app-capable` tag, so Chrome no longer shows a deprecation warning. iPhones still use the Apple tag.
 
 **v0.0.39:** TV links are `https://` only again; older TVs work because the site now uses a Let's Encrypt certificate.
 

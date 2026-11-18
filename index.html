@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><script src="./viewport.js?v=0.0.39"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><script src="./viewport.js?v=0.0.40"></script>
   <meta name="theme-color" content="#000000">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,8 +11,8 @@
   <meta name="robots" content="noindex,nofollow">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="48x48" href="./icons/favicon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="./style.css?v=0.0.39">
-  <title>ShopSmoke Marketing Studio v0.0.39 — Creator PWA</title>
+  <link rel="stylesheet" href="./style.css?v=0.0.40">
+  <title>ShopSmoke Marketing Studio v0.0.40 — Creator PWA</title>
 </head>
 <body>
 <div class="shell">
@@ -54,7 +54,7 @@
         <div id="creatorEmpty" class="creator-empty"><div class="creator-icon">▧</div><h2>Start with a photo</h2><p>Choose a photo you already captured, take a new one, or select something from your store gallery.</p><div class="button-row center"><button class="btn primary" id="creatorCamera">◉ Take photo</button><button class="btn outline" id="creatorUpload">↑ Upload photo</button><button class="btn outline" data-go="gallery">▦ Gallery</button></div></div>
         <div id="creatorEditor" class="creator-editor" hidden>
           <div class="stage-column"><div class="stage-top"><span class="draft-label">LIVE DESIGN PREVIEW</span><strong id="stageDims">1080 × 1080</strong></div><div id="canvasFrame" class="canvas-frame"><canvas id="editCanvas" width="1080" height="1080" aria-label="Editable design preview, drag the text to position it"></canvas></div><div class="stage-caption">The original photo remains unchanged.</div></div>
-          <div class="edit-controls"><div class="control-heading">Design settings <span>v0.0.39</span></div><label>Name <input id="designTitle" maxlength="70" value="New product design"></label><label>Library <select id="libraryFolder" aria-label="Library folder this photo is saved in"></select></label><div class="control-divider"></div><div class="actions"><button class="btn primary full" id="sendTvBtn" type="button">📺 Send to TV</button><button class="btn outline full" id="continueAdvancedBtn">↗ Continue in advanced editor</button><button class="btn quiet full" id="clearEditorBtn">Start a different photo</button></div></div>
+          <div class="edit-controls"><div class="control-heading">Design settings <span>v0.0.40</span></div><label>Name <input id="designTitle" maxlength="70" value="New product design"></label><label>Library <select id="libraryFolder" aria-label="Library folder this photo is saved in"></select></label><div class="control-divider"></div><div class="actions"><button class="btn primary full" id="sendTvBtn" type="button">📺 Send to TV</button><button class="btn outline full" id="continueAdvancedBtn">↗ Continue in advanced editor</button><button class="btn quiet full" id="clearEditorBtn">Start a different photo</button></div></div>
         </div>
       </section>
       <section id="draftsView" class="view" aria-labelledby="draftsTitle"><div class="section-head page-title"><div><div class="eyebrow">DRAFTS</div><h1 id="draftsTitle">Drafts</h1><p>Editor drafts your team can keep working on, photos waiting for approval, and designs saved on this device.</p></div><button class="btn primary" data-go="create">＋ New photo</button></div><div class="section-head"><h2>Saved designs on this device</h2></div><div id="draftsGrid" class="draft-grid"></div></section>
@@ -66,5 +66,5 @@
 <nav class="mobile-nav" aria-label="Mobile navigation"><button data-view="home" class="active"><span>⌂</span>Home</button><button data-view="gallery"><span>▦</span>Library</button><button data-view="create" class="create-tab"><span>＋</span>Create</button><button data-view="drafts"><span>▤</span>Drafts</button><button data-view="stores"><span>▣</span>Stores</button></nav>
 <input id="cameraFile" hidden type="file" accept="image/jpeg,image/png,image/webp" capture="environment"><input id="uploadFiles" hidden type="file" accept="image/jpeg,image/png,image/webp" multiple><input id="restoreFile" hidden type="file" accept="application/json,.json">
 <div id="modalBackdrop" class="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h2 id="modalTitle"></h2><div id="modalContent"></div><div id="modalActions" class="modal-actions"></div></div></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="./app.js?v=0.0.39" defer></script><script src="./tv-home.js?v=0.0.39" defer></script><script src="./ftapi.js?v=0.0.39" defer></script><script src="./creator-library.js?v=0.0.39" defer></script><script src="./creator-cloud.js?v=0.0.39" defer></script>
+<script src="./app.js?v=0.0.40" defer></script><script src="./tv-home.js?v=0.0.40" defer></script><script src="./ftapi.js?v=0.0.40" defer></script><script src="./creator-library.js?v=0.0.40" defer></script><script src="./creator-cloud.js?v=0.0.40" defer></script>
 </body></html>

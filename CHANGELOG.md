@@ -1,5 +1,12 @@
 # Change log
 
+## v0.0.40 — 2026-11-18 · Home page meta tag
+
+Upgrade: extract over `public_html`, keep `api/config.php`, no database change. `.htaccess` is the same as v0.0.39. Nobody needs to log in again.
+
+- **No Chrome warning on the home page.** `index.html` adds `<meta name="mobile-web-app-capable" content="yes">` next to the Apple tag, which Chrome reports as deprecated on its own. iPhones and iPads still read the Apple tag.
+- Every page, the service worker and the API report v0.0.40, so phones and TVs load fresh files instead of cached v0.0.39 ones.
+
 ## v0.0.39 — 2026-11-08 · TV links are https only again
 
 Upgrade: extract over `public_html`, keep `api/config.php`, no database change. `.htaccess` changes back to the v0.0.36 rules, so it must be replaced too. shopsmoke.online uses the `-shopsmoke` zip. Nobody needs to log in again.
