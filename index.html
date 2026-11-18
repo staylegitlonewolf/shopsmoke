@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><script src="./viewport.js?v=0.0.39"></script>
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ShopSmoke Studio">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="48x48" href="./icons/favicon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css?v=0.0.39">
+  <title>ShopSmoke Marketing Studio v0.0.39 — Creator PWA</title>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="Main navigation">
+    <div class="brand"><img class="brandlogo" src="./icons/logo-160.webp" alt="The Galaxy Smoke Shop" width="52" height="52"><div><strong>SHOPSMOKE</strong><small>MARKETING STUDIO</small></div></div>
+    <div class="side-caption">WORKSPACE</div>
+    <nav id="sideNav" class="side-nav">
+      <button data-view="home" class="active"><span>⌂</span> Home</button>
+      <button data-view="gallery"><span>▦</span> Library</button>
+      <button data-view="create"><span>⊕</span> Creator</button>
+      <a href="./publish"><span>📺</span> Publish</a>
+      <button data-view="drafts"><span>▤</span> Drafts</button>
+      <a href="./tv-admin"><span>🖥</span> Manager</a>
+      <button data-view="settings"><span>⚙</span> Settings</button>
+      <a href="./start"><span>?</span> Owner</a>
+    </nav>
+      </aside>
+  <div class="content-shell">
+    <header class="topbar">
+      <button id="navToggle" class="nav-toggle" type="button" aria-controls="sideNav" aria-expanded="true" aria-label="Hide menu" title="Hide menu"><span></span><span></span><span></span></button>
+      <div class="mobile-brand"><img class="brandlogo" src="./icons/logo-160.webp" alt="The Galaxy Smoke Shop" width="52" height="52"><strong>ShopSmoke Studio</strong></div>
+      <div class="crumb">WORKSPACE <span>›</span> <b id="currentPageLabel">Home</b></div>
+      <div class="top-controls"><span class="demo-pill">● LOCAL DEMO</span><nav class="global-links" aria-label="Main"><a href="./publish" title="Quick Publish to TV"><i>📺</i><span>Publish</span></a><a href="./tv-admin" title="TV Manager"><i>🖥</i><span>TVs</span></a><a href="./editor" title="Advanced Editor"><i>✎</i><span>Editor</span></a><a href="./start" title="Help"><i>?</i><span>Help</span></a></nav><label class="store-control">Store <select id="storeSelect" aria-label="Select store"><option value="galaxy-goulds">Galaxy Goulds</option><option value="galaxy-wynwood">Galaxy Wynwood</option><option value="the-farmacy">The Farmacy</option><option value="57th-ave">57th Ave</option><option value="the-square">The Square Smoke Shop</option></select></label><div id="ftAuth"></div></div>
+    </header>
+    <main id="mainContent" tabindex="-1" class="main-content">
+      <section id="homeView" class="view active" aria-label="Home">
+                <div class="home-actions"><button class="btn primary" data-go="create">＋ Create</button><button class="btn outline" data-go="settings">⚙ Settings</button><button id="heroCapture" type="button" hidden></button><a class="btn outline" href="./publish">📺 Publish to TV</a></div>
+        <div class="quick-stats"><div class="stat"><small>PHOTOS</small><strong id="statPhotos">0</strong><span>On this device</span></div><div class="stat"><small>DRAFTS</small><strong id="statDrafts">0</strong><span>Editable designs</span></div><div class="stat"><small>FOLDERS</small><strong id="statFolders">0</strong><span>Store-specific folders</span></div><div class="stat"><small>TV PUBLISHING</small><strong class="status-text">OWNER LOGIN</strong><span>Log in to publish from Quick Publish</span></div></div>
+        <div class="section-head"><h2>Recent photos</h2><button class="text-link" data-go="gallery">All photos →</button></div><div id="homeRecent" class="asset-grid compact-grid"></div>
+      </section>
+      <section id="galleryView" class="view" aria-labelledby="galleryTitle">
+        <div class="section-head page-title"><div><div class="eyebrow">PHOTOS</div><h1 id="galleryTitle">Library</h1><p>Your photos for this store, ready for the editor and your TVs.</p></div><div class="button-row"><button class="btn outline" id="selectModeBtn" type="button">☑ Select</button><button class="btn outline" id="manageFolderBtn">⚙ Folders</button><button class="btn outline" id="addFolderBtn">＋ New folder</button><button class="btn primary" id="galleryUploadBtn">↑ Upload photos</button></div></div>
+        <div class="filter-row"><label>Folder <select id="folderFilter"><option value="all">All folders</option></select></label><label class="search-label">Search <input id="assetSearch" type="search" placeholder="Product name, image, SKU..."></label><span id="galleryCount" class="muted">0 photos</span></div>
+        <div id="selectBar" class="select-bar" hidden><strong id="selectCount">0 selected</strong><button class="btn outline" id="selectAllBtn" type="button">Select all</button><button class="btn outline" id="selectDownloadBtn" type="button" disabled>⇩ Download</button><button class="btn danger-outline" id="selectDeleteBtn" type="button" disabled>🗑 Delete</button><button class="btn quiet" id="selectCancelBtn" type="button">Cancel</button></div>
+        <div id="assetGrid" class="asset-grid"></div>
+      </section>
+      <section id="createView" class="view" aria-labelledby="createTitle">
+        <div class="section-head page-title"><div><div class="eyebrow">PHOTO CREATOR</div><h1 id="createTitle">Create from a product photo</h1><p>Send a photo to a TV, or keep working on it in the editor.</p></div><button class="btn outline" data-go="gallery">▦ Browse library</button></div>
+        <div id="creatorEmpty" class="creator-empty"><div class="creator-icon">▧</div><h2>Start with a photo</h2><p>Choose a photo you already captured, take a new one, or select something from your store gallery.</p><div class="button-row center"><button class="btn primary" id="creatorCamera">◉ Take photo</button><button class="btn outline" id="creatorUpload">↑ Upload photo</button><button class="btn outline" data-go="gallery">▦ Gallery</button></div></div>
+        <div id="creatorEditor" class="creator-editor" hidden>
+          <div class="stage-column"><div class="stage-top"><span class="draft-label">LIVE DESIGN PREVIEW</span><strong id="stageDims">1080 × 1080</strong></div><div id="canvasFrame" class="canvas-frame"><canvas id="editCanvas" width="1080" height="1080" aria-label="Editable design preview, drag the text to position it"></canvas></div><div class="stage-caption">The original photo remains unchanged.</div></div>
+          <div class="edit-controls"><div class="control-heading">Design settings <span>v0.0.39</span></div><label>Name <input id="designTitle" maxlength="70" value="New product design"></label><label>Library <select id="libraryFolder" aria-label="Library folder this photo is saved in"></select></label><div class="control-divider"></div><div class="actions"><button class="btn primary full" id="sendTvBtn" type="button">📺 Send to TV</button><button class="btn outline full" id="continueAdvancedBtn">↗ Continue in advanced editor</button><button class="btn quiet full" id="clearEditorBtn">Start a different photo</button></div></div>
+        </div>
+      </section>
+      <section id="draftsView" class="view" aria-labelledby="draftsTitle"><div class="section-head page-title"><div><div class="eyebrow">DRAFTS</div><h1 id="draftsTitle">Drafts</h1><p>Editor drafts your team can keep working on, photos waiting for approval, and designs saved on this device.</p></div><button class="btn primary" data-go="create">＋ New photo</button></div><div class="section-head"><h2>Saved designs on this device</h2></div><div id="draftsGrid" class="draft-grid"></div></section>
+      <section id="storesView" class="view" aria-labelledby="storesTitle"><div class="section-head page-title"><div><div class="eyebrow">STORE CONTENT PREVIEW</div><h1 id="storesTitle">Website destinations</h1><p>Review your store's gallery, then use Quick Publish to send approved content to a TV.</p></div></div><div id="storePreview" class="store-preview"></div></section>
+      <section id="settingsView" class="view" aria-labelledby="settingsTitle"><div class="section-head page-title"><div><div class="eyebrow">LOCAL STORAGE & DEPLOYMENT</div><h1 id="settingsTitle">Workspace settings</h1><p>Control backups and review what's connected.</p></div></div><div class="settings-grid"><div class="panel"><h2>Current capabilities</h2><div class="setting-line"><span>Photo camera & gallery</span><b class="ok">Ready</b></div><div class="setting-line"><span>IndexedDB media storage</span><b class="ok">Local only</b></div><div class="setting-line"><span>TV publishing (your server)</span><b class="ok">Owner login</b></div><div class="setting-line"><span>Team accounts & permissions</span><b class="ok">TV Manager → Team</b></div><p class="fineprint">Each person’s server access follows their account (stores and permissions). Photos on this device stay here until you ☁ Sync.</p></div><div class="panel"><h2>Backup & restore</h2><p>Your files are saved within this browser on this device. Clearing website storage removes them.</p><div class="button-row"><button class="btn primary" id="backupBtn">↓ Export backup JSON</button><button class="btn outline" id="restoreBtn">↑ Import backup</button></div><p class="fineprint">Backups include actual uploaded product photos. Keep backup files private. Existing assets are retained on import unless their IDs match.</p></div><div class="panel" id="updatePanel"><h2>App updates</h2><div class="setting-line"><span>This device</span><b id="updateHere">—</b></div><div class="setting-line"><span>Server</span><b id="updateServer">—</b></div><p id="updateMsg" role="status">Not checked yet.</p><div class="button-row"><button class="btn primary" id="updateNow" type="button" hidden>Update now</button><button class="btn outline" id="updateCheck" type="button">Check for updates</button><button class="btn outline" id="clearCacheBtn" type="button">Clear cache</button></div><p class="fineprint">Clear cache reloads the app’s own files. Your photos, drafts and login stay.</p></div><div class="panel"><h2>Install on your phone</h2><p><b>iPhone:</b> Safari → Share → Add to Home Screen.</p><p><b>Android:</b> Chrome → menu → Install app / Add to Home Screen.</p></div><div class="panel"><h2>Data summary</h2><p id="storageSummary">Calculating local library...</p><button class="btn danger-outline" id="clearDataBtn">Delete everything on this device</button><h2 class="about-head">About</h2><div class="sidebar-note"><span class="local-dot"></span> PHOTOS SAVED ON THIS DEVICE<br><small>TV publishing uses the owner login</small></div><p><a href="./editor" class="btn outline">↗ Open Advanced Editor</a></p><p class="fineprint">Version <span id="appVersion"></span> • PWA</p></div></div></section>
+    </main>
+  </div>
+</div>
+<nav class="mobile-nav" aria-label="Mobile navigation"><button data-view="home" class="active"><span>⌂</span>Home</button><button data-view="gallery"><span>▦</span>Library</button><button data-view="create" class="create-tab"><span>＋</span>Create</button><button data-view="drafts"><span>▤</span>Drafts</button><button data-view="stores"><span>▣</span>Stores</button></nav>
+<input id="cameraFile" hidden type="file" accept="image/jpeg,image/png,image/webp" capture="environment"><input id="uploadFiles" hidden type="file" accept="image/jpeg,image/png,image/webp" multiple><input id="restoreFile" hidden type="file" accept="application/json,.json">
+<div id="modalBackdrop" class="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h2 id="modalTitle"></h2><div id="modalContent"></div><div id="modalActions" class="modal-actions"></div></div></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="./app.js?v=0.0.39" defer></script><script src="./tv-home.js?v=0.0.39" defer></script><script src="./ftapi.js?v=0.0.39" defer></script><script src="./creator-library.js?v=0.0.39" defer></script><script src="./creator-cloud.js?v=0.0.39" defer></script>
+</body></html>

@@ -1,0 +1,11 @@
+Options -Indexes
+# config.php holds the database password: never serve it directly, even if PHP stops running.
+<FilesMatch "^config(\.example)?\.php(\..*)?$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

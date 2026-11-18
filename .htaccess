@@ -1,0 +1,52 @@
+Options -Indexes
+DirectoryIndex index.html index.php
+RewriteEngine On
+# v0.0.19: SSL certificate checks (AutoSSL / Namecheap) read /.well-known/ over plain http on the
+# bare domain; never redirect them or the certificate can't be issued or renewed.
+RewriteRule ^\.well-known/ - [L]
+# v0.0.19: one address only. shopsmoke.online → www.shopsmoke.online, because logins, saved photos
+# and drafts on a phone belong to the exact address they were made on.
+RewriteCond %{HTTP_HOST} ^shopsmoke\.online$ [NC]
+RewriteRule ^ https://www.shopsmoke.online%{REQUEST_URI} [R=301,L]
+# v0.0.19: TVs still on the old domain move themselves on their next full reload (every 15 min).
+# Only TV links are sent over: the old API keeps answering so those TVs stay online until then,
+# and phones can still open the old address to ☁ Sync photos made there.
+RewriteCond %{HTTP_HOST} ^(www\.)?coolwebsitedude\.com$ [NC]
+RewriteRule ^([a-z0-9]+(?:-[a-z0-9]+)*-tv-[1-9][0-9]*/?)$ https://www.shopsmoke.online/$1 [R=302,L,NC]
+# Always use HTTPS (the PWA, owner login and publishing require it).
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# v0.0.21: the home page lives at / ; a typed or bookmarked /index.html goes there (keeps ?view=… etc.).
+# THE_REQUEST is what the browser asked for, so the internal DirectoryIndex lookup of index.html doesn't loop.
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+# v0.0.28: clean addresses. An old /editor.html link or a /editor/ with a slash moves to /editor (keeps ?draft=… etc.).
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s/(editor|publish|tv-admin|team|start)\.html[\s?] [NC]
+RewriteRule ^(editor|publish|tv-admin|team|start)\.html$ /$1 [R=301,L,NC]
+RewriteRule ^(editor|publish|tv-admin|team|add-store|add-tv|rename-tv|tv-history|start)/$ /$1 [R=301,L,NC]
+RewriteRule ^editor$ editor.html [L,NC]
+RewriteRule ^publish$ publish.html [L,NC]
+RewriteRule ^tv-admin$ tv-admin.html [L,NC]
+# v0.0.31: the form pages share one file, which looks at the address to see which form to show.
+RewriteRule ^(team|add-store|add-tv|rename-tv|tv-history)$ manage.html [L,NC]
+RewriteRule ^start$ start.html [L,NC]
+# Store TV destinations: /galaxy-goulds-tv-1/  ->  tv/player.php?slug=galaxy-goulds-tv-1
+RewriteRule ^([a-z0-9]+(?:-[a-z0-9]+)*)-tv-([1-9][0-9]*)/?$ tv/player.php?slug=$1-tv-$2 [QSA,L,NC]
+# v0.0.35: browsers always ask for a newer copy of these, so an installed app can't sit on an old page.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|webmanifest)$|^sw\.js$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+# Release notes, docs, ZIPs and PHP error logs stay private on the live site.
+# v0.0.19: .txt is allowed again: SSL certificate checks read .txt files under /.well-known/.
+<FilesMatch "(\.(md|log|zip)|^error_log)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

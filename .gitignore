@@ -1,0 +1,14 @@
+# Secrets - copy api/config.example.php to api/config.php on the server; never commit it
+api/config.php
+
+# Uploaded TV videos and runtime data (keep the folder's .htaccess)
+tv-content/*
+!tv-content/.htaccess
+
+# Release zips and OS/editor junk
+*.zip
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

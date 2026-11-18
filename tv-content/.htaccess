@@ -1,0 +1,10 @@
+Options -Indexes
+# v0.0.22: uploaded TV videos. nosniff below means they must be served with the right type.
+AddType video/mp4 .mp4
+AddType video/webm .webm
+<FilesMatch "\.(php|php[0-9]|phtml|phar|cgi|pl|py|sh|html?|svg|js)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options nosniff
+</IfModule>

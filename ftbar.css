@@ -1,0 +1,29 @@
+/* v0.0.13: one pinned top bar shared by Quick Publish, TV Manager and Help. */
+.ftbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#121a39;color:#fff;padding:calc(6px + var(--ft-top,0px)) max(12px,calc((100vw - 1270px)/2)) 6px;box-shadow:0 2px 14px #0006;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}
+.ftbar a{text-decoration:none;color:inherit}
+.ftbar-brand{display:flex;align-items:center;gap:8px;font-weight:850;font-size:15px;white-space:nowrap}
+.ftbar-brand b{background:linear-gradient(135deg,#2c3e8c,#e02b47);border-radius:9px;padding:6px 7px;font-size:12px;letter-spacing:.5px}
+.ftbar-nav{display:flex;gap:3px}
+.ftbar-nav a{display:flex;align-items:center;gap:6px;padding:8px 11px;border-radius:9px;color:#cfd9f7;font-size:13px;font-weight:700;white-space:nowrap}
+.ftbar-nav a i{font-style:normal;font-size:15px;line-height:1}
+.ftbar-nav a:hover{background:#ffffff14}
+.ftbar-nav a[aria-current=page]{background:#ffffff24;color:#fff}
+@media(max-width:600px){.ftbar{padding-left:8px;padding-right:8px;gap:6px}.ftbar-brand span{display:none}.ftbar-nav{flex:1;justify-content:flex-end}.ftbar-nav a{flex-direction:column;gap:2px;padding:4px 7px;font-size:10px;min-width:48px}.ftbar-nav a i{font-size:18px}}
+
+/* v0.0.17: the logo lives in Help → About & License; the bar is navigation only */
+.ftbar-brand{display:none!important}.ftbar-nav{flex:1;justify-content:center}
+@media(max-width:600px){.ftbar-nav{justify-content:space-around}}
+
+/* v0.0.18: black top bar (was navy #121a39); neutral grey link text to match */
+.ftbar{background:#000}
+.ftbar-nav a{color:#d4d4d4}
+
+/* v0.0.21: the Home page's bottom bar (Home · Library · Create · Drafts · Stores) on every page at phone/tablet size. */
+.ftfoot{display:none}
+@media(max-width:820px){
+ .ftfoot{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;z-index:55;background:#fff;border-top:1px solid #dde5f0;box-shadow:0 -4px 18px #1224490f;padding:6px 5px calc(8px + var(--ft-bottom,0px));font:10px system-ui,-apple-system,"Segoe UI",sans-serif}
+ .ftfoot a{display:grid;justify-items:center;gap:2px;color:#6a7b96;text-decoration:none;padding:6px 2px}
+ .ftfoot a i{font-style:normal;font-size:25px;line-height:27px}
+ .ftfoot .ftfoot-create i{background:#e02b47;width:48px;height:38px;border-radius:13px;display:grid;place-items:center;font-size:28px;color:#fff;margin-top:-14px;box-shadow:0 6px 18px #e02b4766}
+ body{padding-bottom:calc(84px + var(--ft-bottom,0px))}
+}
